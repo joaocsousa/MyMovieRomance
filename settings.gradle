@@ -1,0 +1,21 @@
+rootProject.name = "MyMovieRomance"
+include ':app'
+
+include ':common:infrastructure:config'
+include ':common:assets'
+include ':common:strings'
+include ':common:colors'
+include ':common:theming'
+include ':common:data:network:core'
+include ':common:logger:api'
+include ':common:logger:default'
+include ':common:data:network:models'
+include ':common:domain:api'
+include ':features:trending'
+include ':common:coroutines:api'
+include ':common:coroutines:impl'
+include ':features:home'
+
+// Enable Gradle's version catalog support
+// https://docs.gradle.org/current/userguide/platforms.html
+enableFeaturePreview("VERSION_CATALOGS")

@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 31
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+    defaultConfig {
+        applicationId "uk.co.twohundredapps.mymovieromance"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        buildConfigField("String", "API_KEY", "\"${properties.getProperty("TMDB_API_KEY")}\"")
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    implementation libs.koin.android
+
+    // region common
+    implementation project(":common:infrastructure:config")
+    implementation project(":common:strings")
+    implementation project(":common:theming")
+    implementation project(":common:assets")
+    implementation project(":common:logger:api")
+    implementation project(":common:logger:default")
+    implementation project(":common:data:network:core")
+    implementation project(":common:coroutines:api")
+    implementation project(":common:coroutines:impl")
+    implementation project(":common:domain:api")
+    //endregion
+
+    //region features
+    implementation project(":features:trending")
+    //endregion
+}
