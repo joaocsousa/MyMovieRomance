@@ -6,12 +6,13 @@ import uk.co.twohundredapps.data.network.CoreApiClient
 import uk.co.twohundredapps.data.network.HttpClientFactory
 import uk.co.twohundredapps.data.network.HttpClientFactoryImpl
 
-val networkCoreModule: List<Module> = listOf(
+val networkCoreDiModule: List<Module> = listOf(
     module {
         factory<HttpClientFactory> {
             HttpClientFactoryImpl(
                 buildConfigProvider = get(),
-                localLogger = get()
+                localLogger = get(),
+                contextDirectoryProvider = get()
             )
         }
         single {

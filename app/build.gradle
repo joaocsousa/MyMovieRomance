@@ -50,6 +50,7 @@ dependencies {
     implementation project(":common:logger:api")
     implementation project(":common:logger:default")
     implementation project(":common:data:network:core")
+    implementation project(":common:data:network:configuration")
     implementation project(":common:coroutines:api")
     implementation project(":common:coroutines:impl")
     implementation project(":common:domain:api")
@@ -57,5 +58,6 @@ dependencies {
 
     //region features
     implementation project(":features:trending")
+    implementation project(":features:home")
     //endregion
 }

@@ -10,7 +10,7 @@ import uk.co.twohundredapps.trending.domain.repositories.TrendingRepository
 import uk.co.twohundredapps.trending.domain.usecases.GetDailyTrendingMovies
 import uk.co.twohundredapps.trending.domain.usecases.GetDailyTrendingMoviesImpl
 
-val trendingModule = listOf(
+val trendingDiModule = listOf(
     module {
         factory<GetDailyTrendingMovies> {
             GetDailyTrendingMoviesImpl(
@@ -21,17 +21,23 @@ val trendingModule = listOf(
             TrendingRepositoryImpl(
                 coroutineContextProvider = get(),
                 trendingApi = get(),
-                trendingPaginatedMovieMapper = get()
+                trendingPaginatedMovieMapper = get(),
+                configurationApi = get()
             )
         }
         factory<TrendingApi> {
             TrendingApiClient(coreApiClient = get())
         }
         factory {
-            TrendingPaginatedMovieMapper(itemMapper = get())
+            TrendingPaginatedMovieMapper(
+                coroutineContextProvider = get(),
+                itemMapper = get()
+            )
         }
         factory {
-            TrendingResultToTrendingMovieMapper()
+            TrendingResultToTrendingMovieMapper(
+                coroutineContextProvider = get()
+            )
         }
     }
 )

@@ -9,7 +9,7 @@ java {
 }
 
 dependencies {
-    implementation libs.ktor.android
+    implementation libs.ktor.okhttp
     implementation libs.ktor.logger
     implementation libs.ktor.serialization
     implementation libs.koin.core

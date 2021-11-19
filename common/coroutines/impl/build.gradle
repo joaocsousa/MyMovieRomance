@@ -11,4 +11,5 @@ java {
 dependencies {
     implementation project(":common:coroutines:api")
     implementation libs.koin.core
+    implementation libs.kotlin.coroutines.core
 }

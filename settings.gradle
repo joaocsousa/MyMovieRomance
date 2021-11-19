@@ -1,3 +1,5 @@
+enableFeaturePreview("VERSION_CATALOGS")
+
 rootProject.name = "MyMovieRomance"
 include ':app'
 
@@ -15,7 +17,4 @@ include ':features:trending'
 include ':common:coroutines:api'
 include ':common:coroutines:impl'
 include ':features:home'
-
-// Enable Gradle's version catalog support
-// https://docs.gradle.org/current/userguide/platforms.html
-enableFeaturePreview("VERSION_CATALOGS")
+include ':common:data:network:configuration'

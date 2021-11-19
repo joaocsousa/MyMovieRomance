@@ -8,12 +8,12 @@ buildscript {
     dependencies {
         classpath libs.android.gradlePlugin
         classpath libs.kotlin.gradlePlugin
+        classpath libs.kotlin.serializationPlugin
     }
 }
 
 plugins {
     alias(libs.plugins.ktlint)
-    alias(libs.plugins.serialization)
     alias(libs.plugins.versions)
 }
 

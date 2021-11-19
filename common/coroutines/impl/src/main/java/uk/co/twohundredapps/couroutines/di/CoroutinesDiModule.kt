@@ -4,7 +4,7 @@ import org.koin.dsl.module
 import uk.co.twohundredapps.coroutines.CoroutineContextProvider
 import uk.co.twohundredapps.couroutines.DefaultCoroutineContextProvider
 
-val coroutinesModule = listOf(
+val coroutinesDiModule = listOf(
     module {
         factory<CoroutineContextProvider> {
             DefaultCoroutineContextProvider()

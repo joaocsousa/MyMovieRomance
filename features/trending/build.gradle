@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'kotlin'
+    id 'kotlinx-serialization'
 }
 
 java {
@@ -12,9 +13,9 @@ dependencies {
     implementation libs.koin.core
     implementation libs.kotlin.serialization
     implementation libs.kotlin.coroutines.core
-
-    implementation project(':common:domain:api')
+    api project(':common:domain:api')
     implementation project(':common:data:network:core')
     implementation project(':common:data:network:models')
+    implementation project(':common:data:network:configuration')
     implementation project(':common:coroutines:api')
 }

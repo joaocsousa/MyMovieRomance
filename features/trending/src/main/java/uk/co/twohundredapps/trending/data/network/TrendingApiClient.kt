@@ -15,7 +15,7 @@ internal class TrendingApiClient(
         timeWindow: TimeWindow
     ): Result<Paginated<TrendingResult>> {
         return runCatching {
-            coreApiClient.get("/trending/${mediaType.name}/${timeWindow.name}")
+            coreApiClient.get("trending/${mediaType.name}/${timeWindow.name}")
         }
     }
 }
