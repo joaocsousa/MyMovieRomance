@@ -3,13 +3,15 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="MyMovieRomance.app" target="11" />
+      <module name="MyMovieRomance.buildSrc" target="11" />
       <module name="MyMovieRomance.common.assets" target="11" />
       <module name="MyMovieRomance.common.colors" target="11" />
       <module name="MyMovieRomance.common.core" target="11" />
       <module name="MyMovieRomance.common.data.network.trending-client" target="1.8" />
       <module name="MyMovieRomance.common.data.repositories.trending" target="1.8" />
       <module name="MyMovieRomance.common.domain.trending" target="1.8" />
-      <module name="MyMovieRomance.common.logger.default" target="11" />
+      <module name="MyMovieRomance.common.logger.impl" target="11" />
+      <module name="MyMovieRomance.common.strict-mode.impl" target="11" />
       <module name="MyMovieRomance.common.strings" target="11" />
       <module name="MyMovieRomance.common.theming" target="11" />
       <module name="MyMovieRomance.features.home" target="11" />

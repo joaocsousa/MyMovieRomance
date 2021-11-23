@@ -1,0 +1,8 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    implementation libs.koin.core
+    implementation project(':common:data:network:core')
+    implementation project(':common:data:network:models')
+    implementation project(':features:trending:common')
+}

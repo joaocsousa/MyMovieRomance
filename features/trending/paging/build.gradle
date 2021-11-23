@@ -1,0 +1,8 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    implementation libs.paging.core
+    implementation libs.koin.core
+    implementation project(':features:trending:common')
+    implementation project(':common:data:network:models')
+}

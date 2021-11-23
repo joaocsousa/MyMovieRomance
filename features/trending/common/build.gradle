@@ -1,0 +1,11 @@
+plugins {
+    id 'kotlinx-serialization'
+}
+
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    implementation libs.kotlin.serialization
+    implementation libs.arrow.core
+    implementation project(':common:data:network:models')
+}

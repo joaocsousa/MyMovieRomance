@@ -1,0 +1,6 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    api project(":common:strict-mode:api")
+    implementation libs.koin.core
+}

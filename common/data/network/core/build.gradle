@@ -1,12 +1,4 @@
-plugins {
-    id 'java-library'
-    id 'kotlin'
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
+apply from: "$rootDir/gradle/java-lib.gradle"
 
 dependencies {
     implementation libs.ktor.okhttp
@@ -14,5 +6,5 @@ dependencies {
     implementation libs.ktor.serialization
     implementation libs.koin.core
     implementation project(':common:infrastructure:config')
-    implementation project(":common:logger:api")
+    implementation project(":common:logger:logy")
 }

@@ -2,21 +2,19 @@ package uk.co.twohundredapps.home.presentation.di
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import uk.co.twohundredapps.home.presentation.mappers.MoviesUiMapper
-import uk.co.twohundredapps.home.presentation.mappers.MoviesUiMapperImpl
+import uk.co.twohundredapps.home.presentation.mappers.MovieUiMapper
+import uk.co.twohundredapps.home.presentation.mappers.MovieUiMapperImpl
 import uk.co.twohundredapps.home.presentation.viewmodels.HomeViewModel
 import uk.co.twohundredapps.home.presentation.viewmodels.HomeViewModelImpl
 
 val homeDiModule = module {
     viewModel<HomeViewModel> {
         HomeViewModelImpl(
-            coroutineContextProvider = get(),
-            logger = get(),
             getDailyTrendingMovies = get(),
-            moviesUiMapper = get()
+            movieUiMapper = get()
         )
     }
-    factory<MoviesUiMapper> {
-        MoviesUiMapperImpl(coroutineContextProvider = get())
+    factory<MovieUiMapper> {
+        MovieUiMapperImpl(coroutineContextProvider = get())
     }
 }

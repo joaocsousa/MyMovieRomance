@@ -12,6 +12,11 @@ serialization = "1.3.1"
 timber = "5.0.1"
 versions = "0.39.0"
 activity = "1.4.0"
+arrow = "1.0.1"
+coil = "1.4.0"
+accompanist = "0.20.2"
+paging = "3.0.1"
+pagingCompose = "1.0.0-alpha14"
 
 [plugins]
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
@@ -34,5 +39,10 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+paging-core = {module = "androidx.paging:paging-common", version.ref = "paging" }
+paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingCompose" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+accompanist-placeholder = { module = "com.google.accompanist:accompanist-placeholder-material", version.ref = "accompanist" }

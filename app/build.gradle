@@ -1,40 +1,15 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-}
+apply from: "$rootDir/gradle/android-app.gradle"
 
 android {
-    compileSdk 31
-
     Properties properties = new Properties()
     properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
     defaultConfig {
         applicationId "uk.co.twohundredapps.mymovieromance"
-        minSdk 21
-        targetSdk 31
         versionCode 1
         versionName "1.0"
 
-        vectorDrawables {
-            useSupportLibrary true
-        }
-
         buildConfigField("String", "API_KEY", "\"${properties.getProperty("TMDB_API_KEY")}\"")
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
 }
 
@@ -48,16 +23,20 @@ dependencies {
     implementation project(":common:theming")
     implementation project(":common:assets")
     implementation project(":common:logger:api")
-    implementation project(":common:logger:default")
+    debugImplementation project(':common:logger:impl')
+    releaseImplementation project(':common:logger:noop')
     implementation project(":common:data:network:core")
-    implementation project(":common:data:network:configuration")
     implementation project(":common:coroutines:api")
     implementation project(":common:coroutines:impl")
     implementation project(":common:domain:api")
+    implementation project(":common:images")
+    debugImplementation project(":common:strict-mode:impl")
+    releaseImplementation project(":common:strict-mode:noop")
     //endregion
 
     //region features
-    implementation project(":features:trending")
+    implementation project(":features:trending:di")
     implementation project(":features:home")
+    implementation project(":features:configuration:data")
     //endregion
 }

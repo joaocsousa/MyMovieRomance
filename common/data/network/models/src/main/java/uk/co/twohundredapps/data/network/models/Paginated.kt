@@ -12,5 +12,5 @@ data class Paginated<T>(
     @SerialName("total_results")
     val totalItems: Int,
     @SerialName("results")
-    val results: List<T>
+    val results: List<T>,
 )

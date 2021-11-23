@@ -6,12 +6,14 @@ import uk.co.twohundredapps.infrastructure.config.BaseApiUrlProvider
 
 class CoreApiClient internal constructor(
     val httpClient: HttpClient,
-    val baseApiUrlProvider: BaseApiUrlProvider
+    val baseApiUrlProvider: BaseApiUrlProvider,
 ) {
     suspend inline fun <reified T> get(
         path: String,
-        block: HttpRequestBuilder.() -> Unit = {}
+        params: Map<String, Any?> = emptyMap(),
     ): T = httpClient.get(urlString = "${baseApiUrlProvider.baseUrl}/$path") {
-        block()
+        params.onEach { (key: String, value: Any?) ->
+            parameter(key, value)
+        }
     }
 }

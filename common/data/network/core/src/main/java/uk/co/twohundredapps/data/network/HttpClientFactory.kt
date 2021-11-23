@@ -10,8 +10,8 @@ import io.ktor.client.request.*
 import okhttp3.Cache
 import uk.co.twohundredapps.infrastructure.config.BuildConfigProvider
 import uk.co.twohundredapps.infrastructure.config.ContextDirectoryProvider
+import uk.co.twohundredapps.logger.Logy
 import kotlinx.serialization.json.Json as SerializationJson
-import uk.co.twohundredapps.logger.Logger as LocalLogger
 
 internal interface HttpClientFactory {
     fun newInstance(): HttpClient
@@ -19,7 +19,6 @@ internal interface HttpClientFactory {
 
 internal class HttpClientFactoryImpl(
     private val buildConfigProvider: BuildConfigProvider,
-    private val localLogger: LocalLogger,
     private val contextDirectoryProvider: ContextDirectoryProvider,
 ) : HttpClientFactory {
 
@@ -44,7 +43,7 @@ internal class HttpClientFactoryImpl(
             install(Logging) {
                 logger = object : Logger {
                     override fun log(message: String) {
-                        localLogger.i(message)
+                        Logy.i(message)
                     }
                 }
                 level = LogLevel.ALL

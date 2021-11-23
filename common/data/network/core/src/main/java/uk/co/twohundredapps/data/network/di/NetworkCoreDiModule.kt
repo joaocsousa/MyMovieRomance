@@ -11,7 +11,6 @@ val networkCoreDiModule: List<Module> = listOf(
         factory<HttpClientFactory> {
             HttpClientFactoryImpl(
                 buildConfigProvider = get(),
-                localLogger = get(),
                 contextDirectoryProvider = get()
             )
         }

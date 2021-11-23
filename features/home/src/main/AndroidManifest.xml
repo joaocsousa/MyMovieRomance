@@ -6,7 +6,6 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:label="@string/title_activity_home"
             android:theme="@style/Theme.MyMovieRomance.NoActionBar">
 
             <intent-filter>

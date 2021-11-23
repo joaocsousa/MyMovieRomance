@@ -11,4 +11,8 @@ interface UseCase {
     interface Suspending<T> : UseCase {
         suspend operator fun invoke(): T
     }
+
+    interface Parametrized<IN, OUT> : UseCase {
+        suspend operator fun invoke(input: IN): OUT
+    }
 }

@@ -1,0 +1,9 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    implementation libs.koin.core
+    implementation project(":features:trending:data")
+    implementation project(":features:trending:network")
+    implementation project(":features:trending:paging")
+    implementation project(":features:trending:domain")
+}
