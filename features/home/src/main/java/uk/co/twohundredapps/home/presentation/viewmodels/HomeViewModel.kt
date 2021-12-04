@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import uk.co.twohundredapps.home.presentation.mappers.MovieUiMapper
 import uk.co.twohundredapps.home.presentation.models.MovieItem
-import uk.co.twohundredapps.logger.Logy
+import uk.co.twohundredapps.logger.logy
 import uk.co.twohundredapps.trending.domain.usecases.GetDailyTrendingMovies
 
 internal class HomeViewModelImpl(
@@ -18,7 +18,7 @@ internal class HomeViewModelImpl(
 ) : HomeViewModel() {
 
     override fun onMovieSelected(movie: MovieItem) {
-        Logy.d("Selected $movie")
+        logy.d("Selected $movie")
     }
 
     override val state: Flow<PagingData<MovieItem>> = getDailyTrendingMovies().cachedIn(viewModelScope).map { pagingData ->

@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel target="1.7">
       <module name="MyMovieRomance.app" target="11" />
       <module name="MyMovieRomance.buildSrc" target="11" />
       <module name="MyMovieRomance.common.assets" target="11" />
       <module name="MyMovieRomance.common.colors" target="11" />
       <module name="MyMovieRomance.common.core" target="11" />
+      <module name="MyMovieRomance.common.coroutines.api" target="1.8" />
+      <module name="MyMovieRomance.common.coroutines.impl" target="1.8" />
+      <module name="MyMovieRomance.common.data.api" target="1.8" />
+      <module name="MyMovieRomance.common.data.network.core" target="1.8" />
+      <module name="MyMovieRomance.common.data.network.models" target="1.8" />
       <module name="MyMovieRomance.common.data.network.trending-client" target="1.8" />
       <module name="MyMovieRomance.common.data.repositories.trending" target="1.8" />
+      <module name="MyMovieRomance.common.domain.api" target="1.8" />
       <module name="MyMovieRomance.common.domain.trending" target="1.8" />
+      <module name="MyMovieRomance.common.extensions.core" target="1.8" />
+      <module name="MyMovieRomance.common.images.api" target="1.8" />
+      <module name="MyMovieRomance.common.images.mapper" target="1.8" />
+      <module name="MyMovieRomance.common.images.presentation" target="1.8" />
+      <module name="MyMovieRomance.common.infrastructure.config" target="1.8" />
+      <module name="MyMovieRomance.common.logger.android" target="11" />
+      <module name="MyMovieRomance.common.logger.api" target="1.8" />
+      <module name="MyMovieRomance.common.logger.default" target="1.8" />
       <module name="MyMovieRomance.common.logger.impl" target="11" />
+      <module name="MyMovieRomance.common.logger.logy" target="1.8" />
+      <module name="MyMovieRomance.common.logger.noop" target="1.8" />
+      <module name="MyMovieRomance.common.strict-mode.api" target="1.8" />
       <module name="MyMovieRomance.common.strict-mode.impl" target="11" />
+      <module name="MyMovieRomance.common.strict-mode.noop" target="1.8" />
       <module name="MyMovieRomance.common.strings" target="11" />
       <module name="MyMovieRomance.common.theming" target="11" />
+      <module name="MyMovieRomance.features.configuration.data" target="1.8" />
+      <module name="MyMovieRomance.features.configuration.domain" target="1.8" />
       <module name="MyMovieRomance.features.home" target="11" />
+      <module name="MyMovieRomance.features.trending.common" target="1.8" />
+      <module name="MyMovieRomance.features.trending.data" target="1.8" />
+      <module name="MyMovieRomance.features.trending.di" target="1.8" />
+      <module name="MyMovieRomance.features.trending.domain" target="1.8" />
+      <module name="MyMovieRomance.features.trending.network" target="1.8" />
+      <module name="MyMovieRomance.features.trending.paging" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

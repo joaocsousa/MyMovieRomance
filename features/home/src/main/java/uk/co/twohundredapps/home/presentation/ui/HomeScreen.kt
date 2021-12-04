@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Devices
@@ -32,12 +31,12 @@ import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.material.shimmer
 import org.koin.androidx.compose.viewModel
-import uk.co.twohundredapps.core.optionOf
 import uk.co.twohundredapps.home.presentation.models.MovieItem
 import uk.co.twohundredapps.home.presentation.viewmodels.HomeViewModel
 import uk.co.twohundredapps.mymovieromance.ui.theme.MyMovieRomanceTheme
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalCoilApi::class)
+@ExperimentalCoilApi
+@ExperimentalFoundationApi
 @Composable
 fun HomeScreen() {
     val homeViewModel by viewModel<HomeViewModel>()
@@ -85,53 +84,50 @@ private fun MovieColumnItem(
     Card(
         modifier = Modifier
             .clickable { onClick() }
-            .padding(4.dp)
-            .height(180.dp),
+            .padding(4.dp),
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            // image
-            movieItem.url.fold(
-                ifEmpty = { },
-                ifSome = { imageUrl ->
-                    val painter = rememberImagePainter(
-                        imageUrl,
-                        builder = {
-                            size(OriginalSize)
-                            crossfade(true)
-                        },
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(ratio = (2.0f / 3))
+        ) {
+
+            val painter = rememberImagePainter(
+                data = movieItem.posters.first().url,
+                builder = {
+                    size(OriginalSize)
+                    crossfade(true)
+                },
+            )
+            Image(
+                painter = painter,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .placeholder(
+                        visible = painter.state is ImagePainter.State.Loading,
+                        highlight = PlaceholderHighlight.shimmer()
                     )
-                    Image(
-                        painter = rememberImagePainter(
-                            imageUrl,
-                            builder = {
-                                size(OriginalSize)
-                                crossfade(true)
-                            },
-                        ),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .placeholder(
-                                visible = painter.state is ImagePainter.State.Loading,
-                                highlight = PlaceholderHighlight.shimmer()
-                            )
-                            .fillMaxSize()
-                    )
-                }
+                    .fillMaxSize()
             )
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
+                modifier = Modifier.matchParentSize()
+            ) {
+                Box(modifier = Modifier
+                    .fillMaxHeight(fraction = 0.5f)
+                    .fillMaxWidth()
+                    .align(alignment = Alignment.BottomCenter)
                     .background(
                         brush = Brush.verticalGradient(
                             colors = listOf(
                                 Color.Transparent,
                                 Color.Black
-                            ),
-                            startY = with(LocalDensity.current) { 140.dp.toPx() }
+                            )
                         )
                     )
-            )
+                )
+            }
             Text(
                 text = movieItem.title,
                 textAlign = TextAlign.Left,
@@ -147,38 +143,7 @@ private fun MovieColumnItem(
     }
 }
 
-//@Preview(showBackground = true, showSystemUi = true, device = Devices.PIXEL)
-//@Composable
-//fun MoviesListPreview() {
-//    MyMovieRomanceTheme {
-//        MoviesList(
-//            movies = listOf(
-//                MovieItem(
-//                    title = "Shang-Chi and the Legend of the Ten Rings",
-//                    url = optionOf("https://placekitten.com/200/300")
-//                ),
-//                MovieItem(
-//                    title = "Red Notice",
-//                    url = optionOf("https://placekitten.com/200/300")
-//                ),
-//                MovieItem(
-//                    title = "No Time to Die",
-//                    url = optionOf("https://placekitten.com/200/300")
-//                ),
-//                MovieItem(
-//                    title = "The Princess Switch 3: Romancing the Star",
-//                    url = optionOf("https://placekitten.com/200/300")
-//                ),
-//                MovieItem(
-//                    title = "Spider-Man: No Way Home",
-//                    url = optionOf("https://placekitten.com/200/300")
-//                )
-//            ),
-//            onSelected = { }
-//        )
-//    }
-//}
-
+@ExperimentalCoilApi
 @Preview(showBackground = true, showSystemUi = true, device = Devices.PIXEL)
 @Composable
 fun MovieItemPreview() {
@@ -186,7 +151,7 @@ fun MovieItemPreview() {
         MovieColumnItem(
             movieItem = MovieItem(
                 title = "Last Night in Soho",
-                url = optionOf("https://placekitten.com/200/300")
+                posters = emptyList()
             ),
             onClick = { }
         )

@@ -3,6 +3,8 @@ package uk.co.twohundredapps.configuration.data.network
 import uk.co.twohundredapps.configuration.data.network.models.`in`.Configuration
 import uk.co.twohundredapps.data.network.CoreApiClient
 
+internal interface ConfigurationApi : ConfigurationDataSource
+
 internal class ConfigurationApiClient(
     private val coreApiClient: CoreApiClient,
 ) : ConfigurationApi {

@@ -9,6 +9,7 @@ buildscript {
         classpath libs.android.gradlePlugin
         classpath libs.kotlin.gradlePlugin
         classpath libs.kotlin.serializationPlugin
+        classpath libs.googleServices
     }
 }
 
@@ -30,16 +31,4 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// https://github.com/ben-manes/gradle-versions-plugin
-def isNonStable = { String version ->
-    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
-    def regex = /^[0-9,.v-]+(-r)?$/
-    return !stableKeyword && !(version ==~ regex)
-}
-
-// https://github.com/ben-manes/gradle-versions-plugin
-tasks.named("dependencyUpdates").configure {
-    rejectVersionIf {
-        isNonStable(it.candidate.version)
-    }
-}
+apply from: "$rootDir/gradle/dependency-updates.gradle"

@@ -16,8 +16,10 @@ dependencies {
     implementation project(":common:theming")
     implementation project(":common:colors")
     implementation project(":common:coroutines:api")
-    implementation project(":common:logger:logy")
     implementation project(':common:extensions:core')
     implementation project(":common:domain:api")
+    implementation project(":common:images:api")
+    implementation project(":common:images:presentation")
+    implementation project(":common:logger:default")
     implementation project(':features:trending:domain')
 }

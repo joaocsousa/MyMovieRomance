@@ -8,7 +8,9 @@ dependencies {
     implementation libs.koin.core
     implementation libs.kotlin.serialization
     implementation libs.kotlin.coroutines.core
+    implementation project(':features:configuration:domain')
     implementation project(':common:coroutines:api')
     implementation project(':common:data:network:core')
     implementation project(':common:data:api')
+    implementation project(':common:domain:api')
 }

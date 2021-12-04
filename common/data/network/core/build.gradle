@@ -6,5 +6,5 @@ dependencies {
     implementation libs.ktor.serialization
     implementation libs.koin.core
     implementation project(':common:infrastructure:config')
-    implementation project(":common:logger:logy")
+    implementation project(":common:logger:default")
 }

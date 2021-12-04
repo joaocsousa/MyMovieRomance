@@ -1,4 +1,5 @@
 apply from: "$rootDir/gradle/android-app.gradle"
+apply plugin: "com.google.gms.google-services"
 
 android {
     Properties properties = new Properties()
@@ -16,20 +17,23 @@ android {
 dependencies {
 
     implementation libs.koin.android
+    implementation libs.firebase.analytics
+    implementation libs.firebase.config
 
     // region common
     implementation project(":common:infrastructure:config")
     implementation project(":common:strings")
     implementation project(":common:theming")
     implementation project(":common:assets")
-    implementation project(":common:logger:api")
-    debugImplementation project(':common:logger:impl')
+    implementation project(':common:logger:default')
+    debugImplementation project(':common:logger:android')
     releaseImplementation project(':common:logger:noop')
     implementation project(":common:data:network:core")
     implementation project(":common:coroutines:api")
     implementation project(":common:coroutines:impl")
     implementation project(":common:domain:api")
-    implementation project(":common:images")
+    implementation project(":common:images:mapper")
+    implementation project(":common:images:presentation")
     debugImplementation project(":common:strict-mode:impl")
     releaseImplementation project(":common:strict-mode:noop")
     //endregion

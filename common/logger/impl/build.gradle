@@ -1,8 +1,0 @@
-apply from: "$rootDir/gradle/android-lib.gradle"
-
-dependencies {
-    implementation project(":common:logger:api")
-    implementation project(":common:infrastructure:config")
-    implementation libs.timber
-    implementation libs.koin.core
-}

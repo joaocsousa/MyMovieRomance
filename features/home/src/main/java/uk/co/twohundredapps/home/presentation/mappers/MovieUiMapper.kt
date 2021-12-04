@@ -15,7 +15,7 @@ internal class MovieUiMapperImpl(
         return withContext(coroutineContextProvider.default) {
             MovieItem(
                 title = input.name,
-                url = input.posterUrl
+                posters = input.posters
             )
         }
     }

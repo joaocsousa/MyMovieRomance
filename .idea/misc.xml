@@ -27,6 +27,12 @@
         <entry key="../../../../layout/compose-model-1637659283734.xml" value="1.0" />
         <entry key="../../../../layout/compose-model-1637660929185.xml" value="0.23300970873786409" />
         <entry key="../../../../layout/compose-model-1637661281411.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1637692965033.xml" value="0.23106796116504855" />
+        <entry key="../../../../layout/compose-model-1638058143959.xml" value="0.1" />
+        <entry key="../../../../layout/compose-model-1638123224561.xml" value="0.29660144181256437" />
+        <entry key="../../../../layout/compose-model-1638134175008.xml" value="0.29660144181256437" />
+        <entry key="../../../../layout/compose-model-1638135929917.xml" value="0.29660144181256437" />
+        <entry key="../../../../layout/compose-model-1638301261872.xml" value="0.18796296296296297" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.4074074074074074" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.4074074074074074" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4074074074074074" />
@@ -36,7 +42,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

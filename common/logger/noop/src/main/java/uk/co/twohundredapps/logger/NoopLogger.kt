@@ -1,20 +1,19 @@
 package uk.co.twohundredapps.logger
 
-internal class NoopLogger : Logger, LoggerInitializer {
+import java.util.logging.Handler
+import java.util.logging.LogRecord
 
-    override fun init() {
+internal class NoopLogger : Handler() {
+
+    override fun publish(record: LogRecord) {
         // no-op
     }
 
-    override fun i(message: String) {
+    override fun flush() {
         // no-op
     }
 
-    override fun d(message: String) {
-        // no-op
-    }
-
-    override fun e(throwable: Throwable) {
+    override fun close() {
         // no-op
     }
 }

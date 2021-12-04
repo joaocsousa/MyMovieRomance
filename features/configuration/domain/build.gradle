@@ -1,0 +1,6 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    implementation libs.kotlin.coroutines.core
+    implementation project(':common:domain:api')
+}

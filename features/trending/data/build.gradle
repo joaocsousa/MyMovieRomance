@@ -9,8 +9,10 @@ dependencies {
     implementation project(":features:trending:paging")
     implementation project(":features:trending:common")
     implementation project(":features:trending:domain")
+    implementation project(":features:configuration:domain")
     implementation project(":common:domain:api")
-    implementation project(":common:images")
+    implementation project(":common:images:mapper")
     implementation project(":common:extensions:core")
     implementation project(":common:coroutines:api")
+    implementation project(":common:logger:default")
 }

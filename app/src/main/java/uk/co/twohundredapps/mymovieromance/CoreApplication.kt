@@ -4,12 +4,14 @@ import android.app.Application
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import uk.co.twohundredapps.logger.LoggerInitializer
 import uk.co.twohundredapps.mymovieromance.di.allDiModules
+import java.util.logging.Handler
+import java.util.logging.Level
+import java.util.logging.Logger
 
 class CoreApplication : Application() {
 
-    private val logger by inject<LoggerInitializer>()
+    private val logHandler by inject<Handler>()
 
     override fun onCreate() {
         super.onCreate()
@@ -17,6 +19,11 @@ class CoreApplication : Application() {
             androidContext(this@CoreApplication)
             modules(allDiModules)
         }
-        logger.init()
+
+        Logger.getLogger("").apply {
+            level = Level.ALL
+            handlers.forEach { removeHandler(it) }
+            addHandler(logHandler)
+        }
     }
 }

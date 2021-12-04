@@ -1,0 +1,7 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+
+dependencies {
+    implementation project(":common:images:api")
+    implementation libs.arrow.core
+    implementation libs.koin.core
+}

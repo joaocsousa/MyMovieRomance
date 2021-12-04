@@ -1,5 +1,5 @@
 package uk.co.twohundredapps.trending.domain.models
 
-import arrow.core.Option
+import uk.co.twohundredapps.images.Image
 
-data class TrendingMovie(val name: String, val posterUrl: Option<String>)
+data class TrendingMovie(val name: String, val posters: List<Image>)

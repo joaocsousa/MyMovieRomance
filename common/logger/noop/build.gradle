@@ -1,6 +1,5 @@
 apply from: "$rootDir/gradle/java-lib.gradle"
 
 dependencies {
-    api project(":common:logger:api")
     implementation libs.koin.core
 }

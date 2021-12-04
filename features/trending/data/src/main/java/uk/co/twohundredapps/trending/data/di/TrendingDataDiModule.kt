@@ -10,13 +10,14 @@ val trendingDataDiModule = module {
     factory<TrendingRepository> {
         TrendingRepositoryImpl(
             trendingPagingDataSource = get(),
-            trendingResultToTrendingMovieMapper = get()
+            trendingResultToTrendingMovieMapper = get(),
+            configurationRepository = get()
         )
     }
     factory<TrendingResultToTrendingMovieMapper> {
         TrendingResultToTrendingMovieMapperImpl(
             coroutineContextProvider = get(),
-            imageUrlFormatter = get()
+            imageUrlMapper = get()
         )
     }
 }
