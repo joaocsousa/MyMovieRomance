@@ -35,8 +35,7 @@ import uk.co.twohundredapps.home.presentation.models.MovieItem
 import uk.co.twohundredapps.home.presentation.viewmodels.HomeViewModel
 import uk.co.twohundredapps.mymovieromance.ui.theme.MyMovieRomanceTheme
 
-@ExperimentalCoilApi
-@ExperimentalFoundationApi
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen() {
     val homeViewModel by viewModel<HomeViewModel>()
