@@ -12,6 +12,10 @@ android {
 
         buildConfigField("String", "API_KEY", "\"${properties.getProperty("TMDB_API_KEY")}\"")
     }
+
+    lintOptions {
+        checkDependencies true
+    }
 }
 
 dependencies {
