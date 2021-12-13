@@ -5,8 +5,9 @@ import uk.co.twohundredapps.data.network.models.Paginated
 import uk.co.twohundredapps.trending.data.network.models.`in`.TrendingResult
 import uk.co.twohundredapps.trending.data.network.models.out.MediaType
 import uk.co.twohundredapps.trending.data.network.models.out.TimeWindow
+import javax.inject.Inject
 
-internal class TrendingApiClient(
+internal class TrendingApiClient @Inject constructor(
     private val coreApiClient: CoreApiClient,
 ) : TrendingApi {
 

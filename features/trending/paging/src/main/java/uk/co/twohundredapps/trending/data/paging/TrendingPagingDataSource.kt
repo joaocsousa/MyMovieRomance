@@ -7,12 +7,13 @@ import kotlinx.coroutines.flow.Flow
 import uk.co.twohundredapps.trending.data.network.models.`in`.TrendingResult
 import uk.co.twohundredapps.trending.data.network.models.out.MediaType
 import uk.co.twohundredapps.trending.data.network.models.out.TimeWindow
+import javax.inject.Inject
 
 interface TrendingPagingDataSource {
     operator fun invoke(mediaType: MediaType, timeWindow: TimeWindow): Flow<PagingData<TrendingResult>>
 }
 
-internal class TrendingPagingDataSourceImpl(
+internal class TrendingPagingDataSourceImpl @Inject constructor(
     private val trendingApiPagingDataSourceFactory: TrendingApiPagingDataSourceFactory,
 ) : TrendingPagingDataSource {
     override fun invoke(mediaType: MediaType, timeWindow: TimeWindow): Flow<PagingData<TrendingResult>> {

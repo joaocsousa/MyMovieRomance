@@ -1,10 +1,12 @@
 apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation libs.arrow.core
     implementation libs.paging.core
     implementation libs.kotlin.coroutines.core
-    implementation libs.koin.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
     implementation project(":common:domain:api")
     implementation project(":common:images:api")
 }

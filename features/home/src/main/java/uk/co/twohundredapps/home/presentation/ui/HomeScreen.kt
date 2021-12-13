@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
@@ -30,15 +31,13 @@ import coil.size.OriginalSize
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.material.shimmer
-import org.koin.androidx.compose.viewModel
 import uk.co.twohundredapps.home.presentation.models.MovieItem
 import uk.co.twohundredapps.home.presentation.viewmodels.HomeViewModel
 import uk.co.twohundredapps.mymovieromance.ui.theme.MyMovieRomanceTheme
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen() {
-    val homeViewModel by viewModel<HomeViewModel>()
+internal fun HomeScreen(homeViewModel: HomeViewModel = viewModel()) {
 
     val state = homeViewModel.state.collectAsLazyPagingItems()
 
@@ -145,7 +144,7 @@ private fun MovieColumnItem(
 @ExperimentalCoilApi
 @Preview(showBackground = true, showSystemUi = true, device = Devices.PIXEL)
 @Composable
-fun MovieItemPreview() {
+internal fun MovieItemPreview() {
     MyMovieRomanceTheme {
         MovieColumnItem(
             movieItem = MovieItem(

@@ -1,11 +1,12 @@
 apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation libs.kotlin.coroutines.core
     implementation libs.paging.core
-    implementation libs.kotlin.coroutines.core
-    implementation libs.koin.core
     implementation libs.arrow.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
     implementation project(":features:trending:paging")
     implementation project(":features:trending:common")
     implementation project(":features:trending:domain")
@@ -14,5 +15,5 @@ dependencies {
     implementation project(":common:images:mapper")
     implementation project(":common:extensions:core")
     implementation project(":common:coroutines:api")
-    implementation project(":common:logger:default")
+    implementation project(':common:logger:core')
 }

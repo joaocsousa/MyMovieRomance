@@ -5,10 +5,11 @@ import kotlinx.coroutines.flow.Flow
 import uk.co.twohundredapps.domain.usecases.UseCase
 import uk.co.twohundredapps.trending.domain.models.TrendingMovie
 import uk.co.twohundredapps.trending.domain.repositories.TrendingRepository
+import javax.inject.Inject
 
 interface GetDailyTrendingMovies : UseCase.AsyncStream<PagingData<TrendingMovie>>
 
-internal class GetDailyTrendingMoviesImpl(
+internal class GetDailyTrendingMoviesImpl @Inject constructor(
     private val trendingRepository: TrendingRepository,
 ) : GetDailyTrendingMovies {
 

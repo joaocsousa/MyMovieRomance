@@ -1,16 +1,21 @@
 apply from: "$rootDir/gradle/compose-lib.gradle"
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 dependencies {
     implementation libs.compose.ui
     implementation libs.compose.material
     implementation libs.compose.ui.tooling
+    implementation libs.navigation.compose
     implementation libs.activity.compose
-    implementation libs.koin.compose
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
     implementation libs.kotlin.coroutines.core
     implementation libs.arrow.core
     implementation libs.coil
     implementation libs.accompanist.placeholder
     implementation libs.paging.compose
+    implementation libs.lifecycle.vm.compose
     implementation project(":common:assets")
     implementation project(":common:strings")
     implementation project(":common:theming")
@@ -20,6 +25,6 @@ dependencies {
     implementation project(":common:domain:api")
     implementation project(":common:images:api")
     implementation project(":common:images:presentation")
-    implementation project(":common:logger:default")
+    implementation project(':common:logger:core')
     implementation project(':features:trending:domain')
 }

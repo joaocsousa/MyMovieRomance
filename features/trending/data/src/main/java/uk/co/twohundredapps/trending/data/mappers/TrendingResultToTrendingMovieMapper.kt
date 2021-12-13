@@ -9,10 +9,11 @@ import uk.co.twohundredapps.mapper.ImageType
 import uk.co.twohundredapps.mapper.ImageUrlMapper
 import uk.co.twohundredapps.trending.data.network.models.`in`.TrendingResult
 import uk.co.twohundredapps.trending.domain.models.TrendingMovie
+import javax.inject.Inject
 
 internal interface TrendingResultToTrendingMovieMapper : Mapper<Pair<Configuration, TrendingResult>, TrendingMovie>
 
-internal class TrendingResultToTrendingMovieMapperImpl(
+internal class TrendingResultToTrendingMovieMapperImpl @Inject constructor(
     private val coroutineContextProvider: CoroutineContextProvider,
     private val imageUrlMapper: ImageUrlMapper,
 ) : TrendingResultToTrendingMovieMapper {

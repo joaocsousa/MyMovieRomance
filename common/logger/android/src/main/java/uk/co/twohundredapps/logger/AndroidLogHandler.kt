@@ -4,8 +4,9 @@ import android.util.Log
 import java.util.logging.Handler
 import java.util.logging.Level
 import java.util.logging.LogRecord
+import javax.inject.Inject
 
-internal class AndroidLogHandler : Handler() {
+internal class AndroidLogHandler @Inject constructor() : Handler() {
 
     private val Level.androidLevel: Int
         get() = when (intValue()) {

@@ -5,10 +5,11 @@ import uk.co.twohundredapps.coroutines.CoroutineContextProvider
 import uk.co.twohundredapps.domain.mappers.Mapper
 import uk.co.twohundredapps.home.presentation.models.MovieItem
 import uk.co.twohundredapps.trending.domain.models.TrendingMovie
+import javax.inject.Inject
 
 internal interface MovieUiMapper : Mapper<TrendingMovie, MovieItem>
 
-internal class MovieUiMapperImpl(
+internal class MovieUiMapperImpl @Inject constructor(
     private val coroutineContextProvider: CoroutineContextProvider,
 ) : MovieUiMapper {
     override suspend fun invoke(input: TrendingMovie): MovieItem {

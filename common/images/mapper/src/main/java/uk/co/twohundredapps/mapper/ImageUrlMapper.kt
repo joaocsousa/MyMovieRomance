@@ -6,12 +6,13 @@ import uk.co.twohundredapps.coroutines.CoroutineContextProvider
 import uk.co.twohundredapps.domain.mappers.Mapper
 import uk.co.twohundredapps.images.Image
 import uk.co.twohundredapps.images.Image.Size.*
+import javax.inject.Inject
 import kotlin.Result.Companion.failure
 import kotlin.Result.Companion.success
 
 interface ImageUrlMapper : Mapper<ImageMappingData, Result<List<Image>>>
 
-internal class ImageUrlMapperImpl(
+internal class ImageUrlMapperImpl @Inject constructor(
     private val coroutineContextProvider: CoroutineContextProvider,
 ) : ImageUrlMapper {
     override suspend fun invoke(input: ImageMappingData): Result<List<Image>> {

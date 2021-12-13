@@ -1,6 +1,8 @@
 apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
-    api project(":common:strict-mode:api")
-    implementation libs.koin.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
+    implementation project(":common:strict-mode:api")
 }

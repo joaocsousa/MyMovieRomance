@@ -10,6 +10,7 @@
       <module name="MyMovieRomance.common.logger.api" target="1.8" />
       <module name="MyMovieRomance.common.logger.impl" target="11" />
       <module name="MyMovieRomance.common.logger.logy" target="1.8" />
+      <module name="MyMovieRomance.features.trending.di" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

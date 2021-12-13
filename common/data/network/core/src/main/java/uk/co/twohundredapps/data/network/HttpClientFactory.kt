@@ -10,14 +10,14 @@ import io.ktor.client.request.*
 import okhttp3.Cache
 import uk.co.twohundredapps.infrastructure.config.BuildConfigProvider
 import uk.co.twohundredapps.infrastructure.config.ContextDirectoryProvider
-import uk.co.twohundredapps.logger.logy
+import javax.inject.Inject
 import kotlinx.serialization.json.Json as SerializationJson
 
 internal interface HttpClientFactory {
     fun newInstance(): HttpClient
 }
 
-internal class HttpClientFactoryImpl(
+internal class HttpClientFactoryImpl @Inject constructor(
     private val buildConfigProvider: BuildConfigProvider,
     private val contextDirectoryProvider: ContextDirectoryProvider,
 ) : HttpClientFactory {

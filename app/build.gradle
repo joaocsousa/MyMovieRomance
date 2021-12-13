@@ -1,5 +1,7 @@
 apply from: "$rootDir/gradle/android-app.gradle"
 apply plugin: "com.google.gms.google-services"
+apply plugin: "kotlin-kapt"
+apply plugin: "dagger.hilt.android.plugin"
 
 android {
     Properties properties = new Properties()
@@ -16,35 +18,41 @@ android {
     lintOptions {
         checkDependencies true
     }
+
+//    hilt {
+//        enableAggregatingTask = true
+//    }
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {
 
-    implementation libs.koin.android
     implementation libs.firebase.analytics
     implementation libs.firebase.config
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
 
-    // region common
     implementation project(":common:infrastructure:config")
     implementation project(":common:strings")
     implementation project(":common:theming")
     implementation project(":common:assets")
-    implementation project(':common:logger:default')
+    implementation project(':common:logger:initializer')
     debugImplementation project(':common:logger:android')
     releaseImplementation project(':common:logger:noop')
-    implementation project(":common:data:network:core")
-    implementation project(":common:coroutines:api")
+    debugImplementation project(':common:strict-mode:android')
+    releaseImplementation project(":common:strict-mode:noop")
+
     implementation project(":common:coroutines:impl")
-    implementation project(":common:domain:api")
     implementation project(":common:images:mapper")
     implementation project(":common:images:presentation")
-    debugImplementation project(":common:strict-mode:impl")
-    releaseImplementation project(":common:strict-mode:noop")
-    //endregion
-
-    //region features
-    implementation project(":features:trending:di")
+    implementation project(":common:data:network:core")
     implementation project(":features:home")
     implementation project(":features:configuration:data")
-    //endregion
+    implementation project(":features:trending:data")
+    implementation project(":features:trending:network")
+    implementation project(":features:trending:paging")
+    implementation project(":features:trending:domain")
 }

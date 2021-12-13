@@ -1,7 +1,9 @@
 apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation project(":common:images:api")
     implementation libs.arrow.core
-    implementation libs.koin.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
 }

@@ -7,8 +7,9 @@ import uk.co.twohundredapps.configuration.data.network.ConfigurationMemoryDataSo
 import uk.co.twohundredapps.configuration.mappers.ConfigurationApiModelMapper
 import uk.co.twohundredapps.configuration.models.Configuration
 import uk.co.twohundredapps.coroutines.CoroutineContextProvider
+import javax.inject.Inject
 
-internal class ConfigurationRepositoryImpl(
+internal class ConfigurationRepositoryImpl @Inject constructor(
     private val coroutineContextProvider: CoroutineContextProvider,
     private val configurationMemoryDataSource: ConfigurationMemoryDataSource,
     private val configurationApi: ConfigurationApi,

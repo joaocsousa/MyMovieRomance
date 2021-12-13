@@ -1,0 +1,9 @@
+apply from: "$rootDir/gradle/android-lib.gradle"
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
+    implementation project(":common:strict-mode:api")
+    implementation project(":common:infrastructure:config")
+}

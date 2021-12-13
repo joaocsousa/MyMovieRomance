@@ -1,10 +1,12 @@
 apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation libs.ktor.okhttp
     implementation libs.ktor.logger
     implementation libs.ktor.serialization
-    implementation libs.koin.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
     implementation project(':common:infrastructure:config')
-    implementation project(":common:logger:default")
+    implementation project(':common:logger:core')
 }
