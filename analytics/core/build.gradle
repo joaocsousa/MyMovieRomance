@@ -1,0 +1,9 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation libs.kotlin.coroutines.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
+    implementation project(path: ':analytics:api')
+}

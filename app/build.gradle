@@ -19,13 +19,9 @@ android {
         checkDependencies true
     }
 
-//    hilt {
-//        enableAggregatingTask = true
-//    }
-}
-
-kapt {
-    correctErrorTypes = true
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
@@ -44,15 +40,9 @@ dependencies {
     releaseImplementation project(':common:logger:noop')
     debugImplementation project(':common:strict-mode:android')
     releaseImplementation project(":common:strict-mode:noop")
+    implementation project(":analytics:api")
+    implementation project(":analytics:listenerX")
+    implementation project(":analytics:core")
 
-    implementation project(":common:coroutines:impl")
-    implementation project(":common:images:mapper")
-    implementation project(":common:images:presentation")
-    implementation project(":common:data:network:core")
-    implementation project(":features:home")
-    implementation project(":features:configuration:data")
-    implementation project(":features:trending:data")
-    implementation project(":features:trending:network")
-    implementation project(":features:trending:paging")
-    implementation project(":features:trending:domain")
+    implementation project(':features:landing')
 }

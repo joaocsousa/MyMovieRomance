@@ -23,7 +23,8 @@ sl4j-android = "1.7.32"
 startup = "1.1.0"
 hilt = "2.40.5"
 lifecycle = "2.4.0"
-navigation = "1.0.0-beta01"
+hilt-navigation-compose = "1.0.0-beta01"
+navigation-compose = "2.4.0-beta02"
 
 [plugins]
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
@@ -52,7 +53,8 @@ paging-core = { module = "androidx.paging:paging-common", version.ref = "paging"
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingCompose" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
 lifecycle-vm-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "navigation" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt.navigation.compose" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation.compose" }
 startup = { module = "androidx.startup:startup-runtime", version.ref = "startup" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
