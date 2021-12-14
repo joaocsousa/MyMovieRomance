@@ -5,7 +5,7 @@ dependencies {
     implementation libs.kotlin.coroutines.core
     implementation libs.hilt.core
     kapt libs.hilt.kotlin.compiler
-    implementation project(":features:configuration:domain")
+    implementation project(":services:configuration:domain")
     implementation project(":common:domain:api")
     implementation project(":common:coroutines:api")
     implementation project(":common:images:api")

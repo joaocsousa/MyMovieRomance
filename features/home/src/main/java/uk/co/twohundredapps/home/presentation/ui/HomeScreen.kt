@@ -4,7 +4,13 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.Card
@@ -21,7 +27,6 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
@@ -37,7 +42,7 @@ import uk.co.twohundredapps.mymovieromance.ui.theme.MyMovieRomanceTheme
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-internal fun HomeScreen(homeViewModel: HomeViewModel = viewModel()) {
+fun HomeScreen(homeViewModel: HomeViewModel) {
 
     val state = homeViewModel.state.collectAsLazyPagingItems()
 
@@ -112,18 +117,19 @@ private fun MovieColumnItem(
             Box(
                 modifier = Modifier.matchParentSize()
             ) {
-                Box(modifier = Modifier
-                    .fillMaxHeight(fraction = 0.5f)
-                    .fillMaxWidth()
-                    .align(alignment = Alignment.BottomCenter)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Color.Transparent,
-                                Color.Black
+                Box(
+                    modifier = Modifier
+                        .fillMaxHeight(fraction = 0.5f)
+                        .fillMaxWidth()
+                        .align(alignment = Alignment.BottomCenter)
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    Color.Transparent,
+                                    Color.Black
+                                )
                             )
                         )
-                    )
                 )
             }
             Text(

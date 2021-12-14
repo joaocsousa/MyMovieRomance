@@ -40,9 +40,9 @@ dependencies {
     releaseImplementation project(':common:logger:noop')
     debugImplementation project(':common:strict-mode:android')
     releaseImplementation project(":common:strict-mode:noop")
-    implementation project(":analytics:api")
-    implementation project(":analytics:listenerX")
-    implementation project(":analytics:core")
+    implementation project(":common:analytics:api")
+    implementation project(":common:analytics:listenerX")
+    implementation project(":common:analytics:core")
 
     implementation project(':features:landing')
 }

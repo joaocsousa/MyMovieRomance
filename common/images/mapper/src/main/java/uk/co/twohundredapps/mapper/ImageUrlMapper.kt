@@ -5,7 +5,9 @@ import uk.co.twohundredapps.configuration.models.Configuration
 import uk.co.twohundredapps.coroutines.CoroutineContextProvider
 import uk.co.twohundredapps.domain.mappers.Mapper
 import uk.co.twohundredapps.images.Image
-import uk.co.twohundredapps.images.Image.Size.*
+import uk.co.twohundredapps.images.Image.Size.Height
+import uk.co.twohundredapps.images.Image.Size.Original
+import uk.co.twohundredapps.images.Image.Size.Width
 import javax.inject.Inject
 import kotlin.Result.Companion.failure
 import kotlin.Result.Companion.success

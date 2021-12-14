@@ -15,7 +15,7 @@ import uk.co.twohundredapps.trending.domain.usecases.GetDailyTrendingMovies
 import javax.inject.Inject
 
 @HiltViewModel
-internal class HomeViewModel @Inject constructor(
+class HomeViewModel @Inject internal constructor(
     getDailyTrendingMovies: GetDailyTrendingMovies,
     private val movieUiMapper: MovieUiMapper,
 ) : ViewModel() {

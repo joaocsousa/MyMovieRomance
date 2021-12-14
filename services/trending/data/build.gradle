@@ -1,0 +1,21 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlinx-serialization'
+
+dependencies {
+    implementation libs.kotlin.serialization
+    implementation libs.kotlin.coroutines.core
+    implementation libs.paging.core
+    implementation libs.arrow.core
+    implementation libs.hilt.core
+    kapt libs.hilt.kotlin.compiler
+    implementation project(":services:trending:domain")
+    implementation project(":services:configuration:domain")
+    implementation project(":common:domain:api")
+    implementation project(":common:images:mapper")
+    implementation project(":common:extensions:core")
+    implementation project(":common:coroutines:api")
+    implementation project(':common:logger:core')
+    implementation project(':common:data:network:core')
+    implementation project(':common:data:network:models')
+}

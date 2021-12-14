@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.ktor.client.*
+import io.ktor.client.HttpClient
 import uk.co.twohundredapps.data.network.HttpClientFactory
 import uk.co.twohundredapps.data.network.HttpClientFactoryImpl
 import javax.inject.Singleton

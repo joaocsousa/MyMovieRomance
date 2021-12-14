@@ -1,12 +1,13 @@
 package uk.co.twohundredapps.data.network
 
-import io.ktor.client.*
-import io.ktor.client.engine.okhttp.*
-import io.ktor.client.features.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
-import io.ktor.client.features.logging.*
-import io.ktor.client.request.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.features.DefaultRequest
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.features.logging.LogLevel
+import io.ktor.client.features.logging.Logging
+import io.ktor.client.request.parameter
 import okhttp3.Cache
 import uk.co.twohundredapps.infrastructure.config.BuildConfigProvider
 import uk.co.twohundredapps.infrastructure.config.ContextDirectoryProvider
