@@ -6,5 +6,6 @@ dependencies {
     implementation libs.hilt.core
     kapt libs.hilt.kotlin.compiler
     implementation project(':common:analytics:api')
+    implementation project(':common:analytics:events')
     implementation project(':common:logger:core')
 }

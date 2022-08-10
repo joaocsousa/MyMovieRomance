@@ -18,4 +18,8 @@ dependencies {
     implementation project(':common:logger:core')
     implementation project(':common:data:network:core')
     implementation project(':common:data:network:models')
+    testImplementation project(":common:coroutines:test")
+    testImplementation libs.junit
+    testImplementation libs.mockk
+    testImplementation libs.kotlin.coroutines.test
 }

@@ -9,20 +9,20 @@ import javax.inject.Singleton
 import kotlin.reflect.KClass
 
 @Singleton
-internal class AnalyticsBridgeProviderImpl @Inject constructor() : AnalyticsEmitterFactory, AnalyticsObserverFactory {
+internal class AnalyticsBridgeFactory @Inject constructor() : AnalyticsEmitterFactory, AnalyticsObserverFactory {
     private val bridges = mutableMapOf<KClass<*>, AnalyticsBridge<*>>()
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : Any> emitter(type: KClass<T>): AnalyticsEmitter<T> {
-        return bridges.getOrPut(type, {
-            AnalyticsBridge<T>()
-        }) as AnalyticsEmitter<T>
+    override fun <EVENT : Any> emitter(type: KClass<EVENT>): AnalyticsEmitter<EVENT> {
+        return bridges.getOrPut(type) {
+            AnalyticsBridge<EVENT>()
+        } as AnalyticsEmitter<EVENT>
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : Any> observer(type: KClass<T>): AnalyticsObserver<T> {
-        return bridges.getOrPut(type, {
-            AnalyticsBridge<T>()
-        }) as AnalyticsObserver<T>
+    override fun <EVENT : Any> observer(type: KClass<EVENT>): AnalyticsObserver<EVENT> {
+        return bridges.getOrPut(type) {
+            AnalyticsBridge<EVENT>()
+        } as AnalyticsObserver<EVENT>
     }
 }

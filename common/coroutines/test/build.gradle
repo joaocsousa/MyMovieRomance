@@ -1,0 +1,7 @@
+apply from: "$rootDir/gradle/java-lib.gradle"
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation project(":common:coroutines:api")
+    implementation libs.kotlin.coroutines.test
+}

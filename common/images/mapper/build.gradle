@@ -9,4 +9,8 @@ dependencies {
     implementation project(":common:domain:api")
     implementation project(":common:coroutines:api")
     implementation project(":common:images:api")
+    testImplementation project(":common:coroutines:test")
+    testImplementation libs.junit
+    testImplementation libs.mockk
+    testImplementation libs.kotlin.coroutines.test
 }

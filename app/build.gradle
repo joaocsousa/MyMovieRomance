@@ -18,10 +18,6 @@ android {
     lintOptions {
         checkDependencies true
     }
-
-    hilt {
-        enableAggregatingTask = true
-    }
 }
 
 dependencies {
@@ -35,14 +31,20 @@ dependencies {
     implementation project(":common:strings")
     implementation project(":common:theming")
     implementation project(":common:assets")
+
     implementation project(':common:logger:initializer')
     debugImplementation project(':common:logger:android')
     releaseImplementation project(':common:logger:noop')
+
     debugImplementation project(':common:strict-mode:android')
     releaseImplementation project(":common:strict-mode:noop")
+
     implementation project(":common:analytics:api")
     implementation project(":common:analytics:listenerX")
     implementation project(":common:analytics:core")
 
     implementation project(':features:landing')
+    implementation project(':services:trending:data')
+    implementation project(':services:configuration:data')
+    implementation project(':common:coroutines:impl')
 }

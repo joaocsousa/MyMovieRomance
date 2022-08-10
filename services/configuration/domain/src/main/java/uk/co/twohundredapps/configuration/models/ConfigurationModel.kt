@@ -1,6 +1,6 @@
 package uk.co.twohundredapps.configuration.models
 
-data class Configuration(
+data class ConfigurationModel(
     val baseImageUrl: String,
     val backdropSizes: List<String>,
     val logoSizes: List<String>,

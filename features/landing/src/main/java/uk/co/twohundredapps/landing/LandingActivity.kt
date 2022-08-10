@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -37,7 +38,7 @@ class LandingActivity : ComponentActivity() {
 fun NavigationComponent(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
-        startDestination = "trending"
+        startDestination = "home"
     ) {
         composable("home") {
             HomeScreen(hiltViewModel())
@@ -51,4 +52,10 @@ fun NavigationComponent(navHostController: NavHostController) {
 @Composable
 fun DetailScreen() {
     Text(text = "Detail")
+}
+
+@Preview
+@Composable
+fun DetailsScreenPreview() {
+    DetailScreen()
 }

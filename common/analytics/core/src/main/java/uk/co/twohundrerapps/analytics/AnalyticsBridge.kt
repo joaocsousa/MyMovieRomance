@@ -1,17 +1,13 @@
 package uk.co.twohundrerapps.analytics
 
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.launch
 import uk.co.twohundredapps.analytics.AnalyticsEmitter
 import uk.co.twohundredapps.analytics.AnalyticsObserver
 
-internal class AnalyticsBridge<T> : AnalyticsEmitter<T>, AnalyticsObserver<T> {
-    override val events = MutableSharedFlow<T>()
+internal class AnalyticsBridge<EVENT> : AnalyticsEmitter<EVENT>, AnalyticsObserver<EVENT> {
+    override val events = MutableSharedFlow<EVENT>()
 
-    override fun emit(event: T) {
-        GlobalScope.launch {
-            events.emit(event)
-        }
+    override suspend fun emit(event: EVENT) {
+        events.emit(event)
     }
 }

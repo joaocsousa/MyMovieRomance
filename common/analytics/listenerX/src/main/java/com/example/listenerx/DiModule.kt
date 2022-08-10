@@ -12,5 +12,5 @@ import uk.co.twohundredapps.analytics.AnalyticsInitializer
 internal interface DiModule {
     @Binds
     @IntoSet
-    fun LoggerAnalytics.bindAnalyticsInitializer(): AnalyticsInitializer
+    fun AnalyticsListenerX.bindAnalyticsListenerX(): AnalyticsInitializer
 }

@@ -1,7 +1,7 @@
 package uk.co.twohundredapps.mapper
 
 import kotlinx.coroutines.withContext
-import uk.co.twohundredapps.configuration.models.Configuration
+import uk.co.twohundredapps.configuration.models.ConfigurationModel
 import uk.co.twohundredapps.coroutines.CoroutineContextProvider
 import uk.co.twohundredapps.domain.mappers.Mapper
 import uk.co.twohundredapps.images.Image
@@ -21,7 +21,7 @@ internal class ImageUrlMapperImpl @Inject constructor(
         return withContext(coroutineContextProvider.io) {
             val urlPath = input.imagePath
             if (urlPath.isNullOrBlank()) {
-                failure(IllegalArgumentException())
+                failure(IllegalArgumentException("no image path!"))
             } else {
                 success(
                     formatUrl(configuration = input.configuration, imageType = input.imageType, path = urlPath)
@@ -30,7 +30,7 @@ internal class ImageUrlMapperImpl @Inject constructor(
         }
     }
 
-    private fun formatUrl(configuration: Configuration, imageType: ImageType, path: String): List<Image> {
+    private fun formatUrl(configuration: ConfigurationModel, imageType: ImageType, path: String): List<Image> {
         return when (imageType) {
             ImageType.Backdrop -> configuration.backdropSizes
             ImageType.Logo -> configuration.logoSizes

@@ -1,4 +1,4 @@
-package uk.co.twohundredapps.analytics
+package uk.co.twohundrerapps.analytics
 
 /**
  * Should not be here. It's here just for demo

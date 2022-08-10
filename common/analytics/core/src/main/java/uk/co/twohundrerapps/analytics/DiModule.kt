@@ -11,8 +11,8 @@ import uk.co.twohundredapps.analytics.AnalyticsObserverFactory
 @InstallIn(SingletonComponent::class)
 internal interface DiModule {
     @Binds
-    fun AnalyticsBridgeProviderImpl.bindAnalyticsEmitterFactory(): AnalyticsEmitterFactory
+    fun AnalyticsBridgeFactory.bindAnalyticsEmitterFactory(): AnalyticsEmitterFactory
 
     @Binds
-    fun AnalyticsBridgeProviderImpl.bindAnalyticsObserverFactory(): AnalyticsObserverFactory
+    fun AnalyticsBridgeFactory.bindAnalyticsObserverFactory(): AnalyticsObserverFactory
 }

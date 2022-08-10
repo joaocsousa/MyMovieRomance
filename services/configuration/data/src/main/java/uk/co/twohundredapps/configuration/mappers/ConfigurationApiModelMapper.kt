@@ -1,15 +1,15 @@
 package uk.co.twohundredapps.configuration.mappers
 
-import uk.co.twohundredapps.configuration.data.network.models.`in`.Configuration
+import uk.co.twohundredapps.configuration.data.network.models.`in`.ConfigurationApiJson
+import uk.co.twohundredapps.configuration.models.ConfigurationModel
 import uk.co.twohundredapps.domain.mappers.Mapper
 import javax.inject.Inject
-import uk.co.twohundredapps.configuration.models.Configuration as ConfigurationEntity
 
-internal interface ConfigurationApiModelMapper : Mapper<Configuration, ConfigurationEntity>
+internal interface ConfigurationApiModelMapper : Mapper<ConfigurationApiJson, ConfigurationModel>
 
 internal class ConfigurationApiModelMapperImpl @Inject constructor() : ConfigurationApiModelMapper {
-    override suspend fun invoke(input: Configuration): ConfigurationEntity {
-        return ConfigurationEntity(
+    override suspend fun invoke(input: ConfigurationApiJson): ConfigurationModel {
+        return ConfigurationModel(
             baseImageUrl = input.imagesConfiguration.secureBaseUrl,
             backdropSizes = input.imagesConfiguration.backdropSizes,
             logoSizes = input.imagesConfiguration.logoSizes,

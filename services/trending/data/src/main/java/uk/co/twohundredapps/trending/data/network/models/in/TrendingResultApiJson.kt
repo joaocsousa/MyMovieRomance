@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class TrendingResult(
+data class TrendingResultApiJson(
     @SerialName("title")
     val title: String,
     @SerialName("overview")

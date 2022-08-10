@@ -3,11 +3,11 @@ package uk.co.twohundredapps.trending.data.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import uk.co.twohundredapps.trending.data.network.api.TrendingApi
-import uk.co.twohundredapps.trending.data.network.models.`in`.TrendingResult
+import uk.co.twohundredapps.trending.data.network.models.`in`.TrendingResultApiJson
 import uk.co.twohundredapps.trending.data.network.models.out.MediaType
 import uk.co.twohundredapps.trending.data.network.models.out.TimeWindow
 
-internal abstract class TrendingApiPagingDataSource : PagingSource<Int, TrendingResult>() {
+internal abstract class TrendingApiPagingDataSource : PagingSource<Int, TrendingResultApiJson>() {
     abstract val mediaType: MediaType
     abstract val timeWindow: TimeWindow
 }
@@ -18,11 +18,11 @@ internal class TrendingApiPagingDataSourceImpl(
     override val timeWindow: TimeWindow,
 ) : TrendingApiPagingDataSource() {
 
-    override fun getRefreshKey(state: PagingState<Int, TrendingResult>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, TrendingResultApiJson>): Int? {
         return state.anchorPosition
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, TrendingResult> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, TrendingResultApiJson> {
         val pageToLoad = params.key ?: 1
         return trendingApi.getTrending(mediaType = mediaType, timeWindow = timeWindow, page = pageToLoad).fold(
             onSuccess = { response ->

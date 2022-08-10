@@ -26,5 +26,7 @@ dependencies {
     implementation project(":common:images:api")
     implementation project(":common:images:presentation")
     implementation project(':common:logger:core')
+    implementation project(':common:analytics:api')
+    implementation project(':common:analytics:events')
     implementation project(':services:trending:domain')
 }

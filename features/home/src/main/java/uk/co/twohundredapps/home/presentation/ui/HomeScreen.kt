@@ -151,13 +151,16 @@ private fun MovieColumnItem(
 @Preview(showBackground = true, showSystemUi = true, device = Devices.PIXEL)
 @Composable
 internal fun MovieItemPreview() {
-    MyMovieRomanceTheme {
-        MovieColumnItem(
-            movieItem = MovieItem(
-                title = "Last Night in Soho",
-                posters = emptyList()
-            ),
-            onClick = { }
-        )
-    }
+    MovieColumnItem(
+        movieItem = MovieItem(
+            title = "Last Night in Soho",
+            posters = listOf(
+                uk.co.twohundredapps.images.Image(
+                    url = "http://www.google.pt",
+                    size = uk.co.twohundredapps.images.Image.Size.Original
+                )
+            )
+        ),
+        onClick = { }
+    )
 }

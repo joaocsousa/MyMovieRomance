@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Configuration(
+data class ConfigurationApiJson(
     @SerialName("images")
-    val imagesConfiguration: ImagesConfiguration,
+    val imagesConfiguration: ImagesConfigurationApiJson,
 )

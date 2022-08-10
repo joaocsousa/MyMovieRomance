@@ -1,30 +1,26 @@
 package uk.co.twohundredapps.configuration.data.network
 
 import uk.co.twohundredapps.api.NotCachedException
-import uk.co.twohundredapps.configuration.data.network.models.`in`.Configuration
+import uk.co.twohundredapps.configuration.data.network.models.`in`.ConfigurationApiJson
 import javax.inject.Inject
 import javax.inject.Singleton
 
 internal interface ConfigurationMemoryDataSource : ConfigurationDataSource {
-    fun setConfiguration(configuration: Configuration)
+    fun setConfiguration(configuration: ConfigurationApiJson)
 }
 
 @Singleton
 internal class ConfigurationMemoryDataSourceImpl @Inject constructor() : ConfigurationMemoryDataSource {
 
-    private var configuration: Configuration? = null
+    private var configuration: ConfigurationApiJson? = null
 
-    override fun setConfiguration(configuration: Configuration) {
+    override fun setConfiguration(configuration: ConfigurationApiJson) {
         this.configuration = configuration
     }
 
-    override suspend fun getConfiguration(): Result<Configuration> {
+    override suspend fun getConfiguration(): Result<ConfigurationApiJson> {
         return runCatching {
-            if (configuration != null) {
-                configuration!!
-            } else {
-                throw NotCachedException("configuration not cached")
-            }
+            configuration ?: throw NotCachedException("configuration not cached")
         }
     }
 }

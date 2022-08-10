@@ -11,5 +11,5 @@ import uk.co.twohundredapps.mapper.ImageUrlMapperImpl
 @InstallIn(SingletonComponent::class)
 internal interface DiModule {
     @Binds
-    fun ImageUrlMapperImpl.bindLoggerInitializer(): ImageUrlMapper
+    fun ImageUrlMapperImpl.bindImageUrlMapper(): ImageUrlMapper
 }

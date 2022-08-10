@@ -1,18 +1,10 @@
 apply from: "$rootDir/gradle/android-lib.gradle"
 
 android {
-    kotlinOptions {
-        useIR = true
-    }
     buildFeatures {
         compose true
     }
     composeOptions {
         kotlinCompilerExtensionVersion libs.versions.compose.get()
-    }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
     }
 }

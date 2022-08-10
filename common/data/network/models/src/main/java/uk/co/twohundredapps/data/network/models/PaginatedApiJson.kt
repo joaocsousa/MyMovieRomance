@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Paginated<T>(
+data class PaginatedApiJson<T>(
     @SerialName("page")
     val page: Int,
     @SerialName("total_pages")
